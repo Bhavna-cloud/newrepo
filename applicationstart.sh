@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ubuntu/application
-pm2 start -f server.js
+cd /home/ubuntu
+pm2 -f start server.js
