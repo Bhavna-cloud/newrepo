@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ubuntu
-npm -f install
+cd /home/ec2-user
+npm install
