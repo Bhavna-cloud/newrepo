@@ -3,16 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10  # Use Node.js 10.x runtime
+      nodejs: 16  # Ensure Node.js 16 is used
   pre_build:
     commands:
       - echo Installing NPM dependencies...
-      - npm install  # Install the dependencies from package.json
+      - npm install  # Installs the dependencies in package.json
   build:
     commands:
       - echo Build started on `date`
-      - echo Compiling the Node.js code
-      # Add any build commands here (e.g., transpiling TypeScript, bundling)
+      - echo Compiling the Node.js code (if needed)
   post_build:
     commands:
       - echo Build completed on `date`
@@ -20,6 +19,6 @@ phases:
 
 artifacts:
   files:
-    - '**/*'  # Include all project files
+    - '**/*'  # Include all files (your server code, static files, etc.)
   exclude-files:
-    - '**/node_modules/**/*'  # Ex
+    - '**/node_modules/**/*'  # Exclude node_modules to reduce artifact size
