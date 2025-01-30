@@ -1,16 +1,14 @@
 #!/bin/bash
 
-# Navigate to the application directory
-cd /home/ubuntu
+cd /home/ubuntu  # Go to the deployed directory
 
-# Install PM2 globally if not already installed
+# Install PM2 (if not already installed)
 npm install pm2 -g
 
-# Start the application with PM2
-pm2 start server.js  # Replace server.js with your main entry file
+# Start the application using PM2
+pm2 start server.js  # Make sure server.js is the correct entry point
 
-# Ensure PM2 saves the process list (to restart on boot)
+# Save the PM2 process list to restart the app automatically after reboot
 pm2 save
 
-# Confirm that the application started successfully
 echo "Application started successfully with PM2"
