@@ -1,14 +1,13 @@
 version: 0.0
 os: linux
-
 files:
-  - source: /  # Everything in the artifact
-    destination: /home/ubuntu  # Copy to /home/ubuntu directory on EC2
+  - source: /  # Root of your repository (where server.js, package.json, etc. are located)
+    destination: /home/ubuntu  # Where the files will be placed on the EC2 instance
 
 hooks:
   AfterInstall:
-    - location: afterinstall.sh
-      timeout: 100  # Timeout in seconds for the AfterInstall script
+    - location: afterinstall.sh  # Install dependencies after files are copied
+      timeout: 100
   ApplicationStart:
-    - location: applicationstart.sh
-      timeout: 100  # Timeout in seconds for the ApplicationStart script
+    - location: applicationstart.sh  # Start the Node.js app
+      timeout: 100
