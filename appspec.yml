@@ -1,12 +1,14 @@
 version: 0.0
 os: linux
+
 files:
-  - source: /
-    destination: /home/ubuntu
+  - source: /  # Everything in the artifact
+    destination: /home/ubuntu  # Copy to /home/ubuntu directory on EC2
+
 hooks:
   AfterInstall:
     - location: afterinstall.sh
-      timeout: 100
+      timeout: 100  # Timeout in seconds for the AfterInstall script
   ApplicationStart:
     - location: applicationstart.sh
-      timeout: 100
+      timeout: 100  # Timeout in seconds for the ApplicationStart script
