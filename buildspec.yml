@@ -1,23 +1,25 @@
-# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 10  # Use Node.js 10.x runtime
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
+      - echo Installing NPM dependencies...
+      - npm install  # Install the dependencies from package.json
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
+      # Add any build commands here (e.g., transpiling TypeScript, bundling)
   post_build:
     commands:
       - echo Build completed on `date`
-# Include only the files required for your application to run.
-# Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages 
-# used only for building and testing.
+      - echo Storing build artifacts in S3
+
 artifacts:
   files:
-    - '**/*'
+    - '**/*'  # Include all project files
+  exclude-files:
+    - '**/node_modules/**/*'  # Ex
