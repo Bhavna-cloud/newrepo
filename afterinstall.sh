@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Navigate to the application directory
-cd /home/ubuntu
+cd /home/ubuntu  # Go to the deployed directory
 
-# Install the required NPM dependencies
+# Install dependencies
 npm install
 
-# Confirm that the dependencies were installed
-echo "NPM install completed successfully"
+if [ $? -eq 0 ]; then
+    echo "NPM dependencies installed successfully"
+else
+    echo "NPM install failed"
+    exit 1
+fi
