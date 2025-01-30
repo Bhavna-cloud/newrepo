@@ -2,11 +2,12 @@ const express = require('express');
 const os = require('os');
 const app = express();
 
-// Serving static files (like CSS, JS)
+// Serve static files (like CSS, JS) from the 'public' folder
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     const hostname = os.hostname();  // Get the hostname of the current server
+    
     res.send(`
         <!DOCTYPE html>
         <html lang="en">
@@ -19,14 +20,14 @@ app.get('/', (req, res) => {
         <body>
             <section class="chat__section">
                 <div class="brand">
-                    <img height="100" src="/WaterMark.jpg" alt="">
-                    <h1>&nbsp;&nbsp;&nbsp;&nbsp; CHATTING HUB &#x1F603;  &#x1F603;</h1>
+                    <img height="100" src="/WaterMark.jpg" alt="Logo">
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp; CHATTING HUB 😃 😃</h1>
                 </div>
                 <div class="message__area"></div>
                 <div>
                     <textarea id="textarea" cols="50" rows="1" placeholder="Type here..."></textarea>
                 </div>
-                <p>Request handled by: ${hostname}</p> <!-- Displays the server's hostname -->
+                <p>Request handled by: ${hostname}</p> <!-- Shows the hostname -->
             </section>
             <script src="/socket.io/socket.io.js"></script>
             <script src="/client.js"></script>
