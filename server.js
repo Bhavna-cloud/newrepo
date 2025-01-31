@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const os = require('os');  // To get the instance hostname
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 http.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
