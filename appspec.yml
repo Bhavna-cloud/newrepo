@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /  # Root of your repository (where server.js, package.json, etc. are located)
-    destination: /home/ubuntu  # Where the files will be placed on the EC2 instance
+    destination: /var/www/html  # Where the files will be placed on the EC2 instance
 
 hooks:
   AfterInstall:
